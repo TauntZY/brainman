@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=640px,user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <title>抽奖</title>
+    <!--Adobe Edge Runtime-->
+    <script type="text/javascript" charset="utf-8" src="edge_includes/edge.6.0.0.min.js"></script>
+    <style>
+        .edgeLoad-Page_AnswerRight { visibility:hidden; }
+    </style>
+    <script>
+        AdobeEdge.loadComposition('AnswerRight', 'Page_AnswerRight', {
+            scaleToFit: "both",
+            centerStage: "both",
+            minW: "0px",
+            maxW: "undefined",
+            width: "640px",
+            height: "960px"
+        }, {dom: [ ]}, {dom: [ ]});
+    </script>
+    <!--Adobe Edge Runtime End-->
+
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        html,body,.page{
+            width:100%;
+            height:100%;
+            position: absolute;
+        }
+        .page{
+            background: #1D77B1;
+            overflow: hidden;
+        }
+
+        /*抽奖页面*/
+        #Stage #CJ li{
+            display:block;
+            position: absolute;
+            width: 26.5625%;
+            height:17.60416%;
+        }
+        .page #Stage #CJ #thank2,#thank3,#thank4,#tank1{
+            background: url("images/thank.png") no-repeat center center;
+            background-size: cover;
+        }
+         .page #Stage #CJ #yuan10{
+            background: url("images/10yuan.png") no-repeat center center;
+            background-size: cover;
+        }
+        .page #Stage #CJ #yuan20{
+            background: url("images/20yuan.png") no-repeat center center;
+            background-size: cover;
+        }
+        .page #Stage #CJ #yuan50{
+            background: url("images/50yuan.png") no-repeat center center;
+            background-size: cover;
+        }
+        .page #Stage #CJ #yuan100{
+            background: url("images/100yuan.png") no-repeat center center;
+            background-size: cover;
+        }
+        .page #Stage #CJ #clickCJ{
+            background: url("images/clickCJ.png") no-repeat center center;
+            background-size: cover;
+        }
+        .page #Stage #CJ a{
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .page #Stage #CJ #tank1,#yuan10,#thank2{
+            margin-top: 16.875%;
+        }
+        .page #Stage #CJ #yuan20,#clickCJ,#yuan50{
+            margin-top: 44%;
+        }
+        .page #Stage #CJ #thank4,#yuan100,#thank3{
+            margin-top: 71%;
+        }
+        .page #Stage #CJ #tank1,#yuan20,#thank4{
+            margin-left: 10.625%;
+        }
+        .page #Stage #CJ #yuan10,#clickCJ,#yuan100{
+            margin-left: 37.2% ;
+        }
+        .paeg #Stage #CJ #yuan50,#thank3,#thank2{
+            margin-left: 63.75%;
+        }
+        .page #Stage #CJ #yuan50{
+            margin-left:63.75%!important; ;
+        }
+        .page #Stage #CJ .luck{
+            opacity: 0.5;
+        }
+        .page #Stage #CJ .active{
+            opacity: 1;
+        }
+        #CJclose{
+            width:34.375%;
+            height: 6.4%;
+            background: url("images/dontCJBtn.png") no-repeat center center;
+            background-size:cover;
+            margin-top: 116%;
+            margin-left: 32.578%;
+            position: absolute;
+            z-index: 1;
+        }
+        #close_100{
+            margin-left: 80%;
+            margin-top: 35%;
+            z-index: 3;
+        }
+        /*礼品盒*/
+        #lipinhe{
+            position:absolute;
+            width: 140px;
+            height: 21px;
+            margin-left: 440px;
+            margin-top: 670px;
+            z-index: 1;
+        }
+        #lipinhe a{
+            font-weight: 700;
+            font-size: 22px;
+            color: white;
+            z-index: 1;
+        }
+        /*剩余抽奖机会*/
+        #CJcount{
+            position:absolute;
+            width: 280px;
+            height: 21px;
+            margin-left: 60px;
+            margin-top: 662px;
+            font-weight: 700;
+            font-size: 22px;
+            color: white;
+            z-index: 1;
+
+        }
+        #CJcount  #count{
+            background: white;
+            font-weight: bold;
+            font-size: 30px;
+            color: #1D77B1;
+        }
+
+
+
+
+
+
+
+        /*中奖情况回馈界面*/
+        .close{
+            width: 48px;
+            height: 53px;
+            background: url("images/close.png") no-repeat center center;
+            background-size: cover;
+            position: absolute;
+        }
+        .share{
+            width: 223px;
+            height:64px;
+            background: url("images/errorShare.png") no-repeat center center;
+            background-size: cover;
+            position: absolute;
+        }
+        a{
+            text-decoration: none;
+            display:block;
+        }
+
+
+        /*没有中奖页面*/
+        #con_no{
+            width: 579px;
+            height:719px;
+            position:absolute;
+            background: url("images/nothing.png") no-repeat center center;
+            background-size: cover;
+            margin-left: 5%;
+            margin-top: 13%;
+            z-index: 3;
+        }
+        #close_no{
+            margin-left: 80%;
+            margin-top: 35%;
+        }
+        #lipinhe_no{
+            position:absolute;
+            width: 140px;
+            height: 21px;
+            margin-left: 250px;
+            margin-top: 326px;
+        }
+        #lipinhe_no a{
+            font-weight: 700;
+            font-size: 22px;
+            color: #127ebd;
+        }
+        #close_no a{
+            display: block;
+            width: 100%;
+            height:100%;
+        }
+
+        #share_no{
+            margin-left: 33%;
+            margin-top: 118%;
+        }
+        #share_no a{
+            display: block;
+            width: 100%;
+            height:100%;
+        }
+        /*中奖10元话费页面*/
+        #con_10{
+            width: 570px;
+            height:722px;
+            position:absolute;
+            background: url("images/con_10.png") no-repeat center center;
+            background-size: cover;
+            margin-left: 5.5%;
+            margin-top: 13%;
+            z-index: 3;
+        }
+        #con_10_header{
+            position: absolute;
+            width: 350px;
+            height: 30px;
+            font-size: 27px;
+            font-weight: bold;
+            color:#e4a41a ;
+            margin-top: 274px;
+            margin-left: 153px;
+        }
+        #lipinhe_10{
+            position:absolute;
+            width: 140px;
+            height: 21px;
+            margin-left: 250px;
+            margin-top: 326px;
+        }
+        #lipinhe_10 a{
+            font-weight: 700;
+            font-size: 22px;
+            color: #127ebd;
+        }
+        #close_10{
+            margin-left: 80%;
+            margin-top: 35%;
+        }
+        #close_10 a{
+            display: block;
+            width: 100%;
+            height:100%;
+        }
+
+        #share_10{
+            margin-left: 33%;
+            margin-top: 118.5%;
+        }
+        #share_10 a{
+            display: block;
+            width: 100%;
+            height:100%;
+        }
+        /*中奖20元话费页面*/
+        #con_20{
+            width: 570px;
+            height:722px;
+            position:absolute;
+            background: url("images/con_20.png") no-repeat center center;
+            background-size: cover;
+            margin-left: 5.5%;
+            margin-top: 13%;
+            z-index: 3;
+        }
+        #con_20_header{
+            position: absolute;
+            width: 350px;
+            height: 30px;
+            font-size: 27px;
+            font-weight: bold;
+            color:#e4a41a ;
+            margin-top: 274px;
+            margin-left: 153px;
+        }
+        #lipinhe_20{
+            position:absolute;
+            width: 140px;
+            height: 21px;
+            margin-left: 250px;
+            margin-top: 326px;
+        }
+        #lipinhe_20 a{
+            font-weight: 700;
+            font-size: 22px;
+            color: #127ebd;
+        }
+
+        #close_20{
+            margin-left: 80%;
+            margin-top: 35%;
+        }
+        #close_20 a{
+            display: block;
+            width: 100%;
+            height:100%;
+        }
+
+        #share_20{
+            margin-left: 33%;
+            margin-top: 118.5%;
+        }
+        #share_20 a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        /*中奖50元话费页面*/
+        #con_50{
+            width: 570px;
+            height:722px;
+            position:absolute;
+            background: url("images/con_50.png") no-repeat center center;
+            background-size: cover;
+            margin-left: 5.5%;
+            margin-top: 13%;
+            z-index: 3;
+        }
+        #con_50_header{
+            position: absolute;
+            width: 350px;
+            height: 30px;
+            font-size: 27px;
+            font-weight: bold;
+            color:#e4a41a ;
+            margin-top: 274px;
+            margin-left: 153px;
+        }
+        #lipinhe_50{
+            position:absolute;
+            width: 140px;
+            height: 21px;
+            margin-left: 250px;
+            margin-top: 326px;
+        }
+        #lipinhe_50 a{
+            font-weight: 700;
+            font-size: 22px;
+            color: #127ebd;
+        }
+
+        #close_50{
+            margin-left: 80%;
+            margin-top: 35%;
+        }
+        #close_50 a{
+            display: block;
+            width: 100%;
+            height:100%;
+        }
+
+        #share_50{
+            margin-left: 33%;
+            margin-top: 118.5%;
+        }
+        #share_50 a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        /*中奖100元话费页面*/
+        #con_100{
+            width: 570px;
+            height:722px;
+            position:absolute;
+            background: url("images/con_100.png") no-repeat center center;
+            background-size: cover;
+            margin-left: 5.5%;
+            margin-top: 13%;
+            z-index: 3;
+        }
+        #con_100_header{
+            position: absolute;
+            width: 350px;
+            height: 30px;
+            font-size: 27px;
+            font-weight: bold;
+            color:#e4a41a ;
+            margin-top: 274px;
+            margin-left: 153px;
+            z-index: 3;
+        }
+        #lipinhe_100{
+            position:absolute;
+            width: 140px;
+            height: 21px;
+            margin-left: 250px;
+            margin-top: 326px;
+            z-index: 3;
+        }
+
+        #lipinhe_100 a{
+            font-weight: 700;
+            font-size: 22px;
+            color: #127ebd;
+            z-index: 3;
+        }
+
+        #close_100{
+            margin-left: 80%;
+            margin-top: 35%;
+            z-index: 3;
+        }
+
+        #close_100 a{
+            display: block;
+            width: 100%;
+            height:100%;
+            z-index: 3;
+        }
+
+        #share_100{
+            margin-left: 33%;
+            margin-top: 118.5%;
+        }
+
+        #share_100 a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        #nothing,#huafei10,#huafei20,#huafei50,#huafei100{
+            display: none;
+        }
+
+        /*分享*/
+
+        #errorAnswerBg{
+            background: url("images/callHelp.png") no-repeat center center;
+            background-size: cover;
+            display:none;
+            width: 100%;
+            height:100%;
+            opacity: 1;
+            position: absolute;
+            z-index: 9;
+        }
+        #errorAnswerBg a{
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        /*中奖情况背景*/
+
+        #page_op{
+            position: absolute;
+            width: 500%;
+            height: 500%;
+            left: -250%;
+            top:-250% ;
+            background: url("images/page_CJ_op.png") no-repeat center center;
+            background-size: cover;
+            z-index:2;
+            display: none;
+        }
+        .close{
+            z-index: 3;
+        }
+        .share{
+            z-index: 3;
+        }
+
+        .header{
+            z-index: 3;
+        }
+        .goLipinhe{
+            z-index: 3;
+        }
+        .goLipinhe a{
+            z-index: 3;
+        }
+    </style>
+
+</head>
+<body>
+<div id="errorAnswerBg">
+    <a href=""></a>
+</div>
+
+<div class="page" id="pageCon">
+    <div id="Stage" class="Page_AnswerRight">
+
+        <div id="CJ">
+            <!--点击抽奖-->
+            <li id="clickCJ">
+                <a href="#" ></a>
+            </li>
+            <li id="tank1" class="luck luck-0 active"></li>
+            <li id="yuan10" class="luck luck-1"></li>
+            <li id="thank2" class="luck luck-2"></li>
+            <li id="yuan50" class="luck luck-3"></li>
+            <li id="thank3" class="luck luck-4"></li>
+            <li id="yuan100" class="luck luck-5"></li>
+            <li id="thank4" class="luck luck-6"></li>
+            <li id="yuan20" class="luck luck-7"></li>
+            <div id="CJclose">
+                <!--关闭抽奖界面，回到首页-->
+                <a href="index.html"></a>
+            </div>
+            <!--统计抽奖次数-->
+            <div id="CJcount">
+                <span>今天您还有</span>
+                <span id="count">02</span>
+                <span>次抽奖机会</span>
+            </div>
+            <div id="lipinhe" >
+                <a href="lipinhe.html">查看礼品盒>></a>
+            </div>
+        </div>
+        <div id="nothing">
+            <div id="con_no" class="con"></div>
+            <div id="lipinhe_no" class="goLipinhe">
+                <a href="lipinhe.html">查看礼品盒>></a>
+            </div>
+            <div id="close_no" class="close">
+                <a href="index.html"></a>
+            </div>
+            <div id="share_no" class="share">
+                <a href="#"></a>
+            </div>
+        </div>
+        <id id="huafei10">
+            <div id="con_10" class="con"></div>
+            <div id="con_10_header" class="header">
+                中奖啦！恭喜获得10元话费
+            </div>
+            <div id="lipinhe_10" class="goLipinhe">
+                <a href="lipinhe.html">查看礼品盒>></a>
+            </div>
+            <div id="close_10" class="close">
+                <a href="index.html"></a>
+            </div>
+            <div id="share_10" class="share">
+                <a href="#"></a>
+            </div>
+        </id>
+        <id id="huafei20">
+            <div id="con_20" class="con"></div>
+            <div id="con_20_header" class="header">
+                中奖啦！恭喜获得20元话费
+            </div>
+            <div id="lipinhe_20" class="goLipinhe">
+                <a href="lipinhe.html">查看礼品盒>></a>
+            </div>
+            <div id="close_20" class="close" >
+                <a href="index.html"></a>
+            </div>
+            <div id="share_20" class="share">
+                <a href="lipinhe.html"></a>
+            </div>
+        </id>
+        <id id="huafei50">
+            <div id="con_50" class="con"></div>
+            <div id="con_50_header" class="header">
+                中奖啦！恭喜获得50元话费
+            </div>
+            <div id="lipinhe_50" class="goLipinhe">
+                <a href="lipinhe.html">查看礼品盒>></a>
+            </div>
+            <div id="close_50" class="close">
+                <a href="index.html"></a>
+            </div>
+            <div id="share_50" class="share">
+                <a href="#"></a>
+            </div>
+        </id>
+        <id id="huafei100">
+            <div id="con_100" class="con" class="header"></div>
+            <div id="con_100_header">
+                中奖啦！恭喜获得100元话费
+            </div>
+            <div id="lipinhe_100" class="goLipinhe">
+                <a href="lipinhe.html">查看礼品盒>></a>
+            </div>
+            <div id="close_100" class="close">
+                <a href="index.html"></a>
+            </div>
+            <div id="share_100" class="share">
+                <a href="#"></a>
+            </div>
+        </id>
+        <div id="page_op"></div>
+    </div>
+</div>
+
+<script>
+    var bg = document.getElementById("errorAnswerBg");
+    var shares = document.getElementsByClassName("share");
+    for(var i=0;i<shares.length;i++){
+        (function(num){
+            shares[num].onclick = function(){
+                bg.style.display = "block";
+            }
+        })(i);
+    }
+    bg.onclick = function(){
+        bg.style.display = "none";
+    }
+</script>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="js/CJ.js"></script>
+</body>
+</html>

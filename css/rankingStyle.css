@@ -1,0 +1,251 @@
+html{
+    font-size:62.5%;
+}
+*{
+    margin: 0px;
+    paddign:0px;
+}
+html,body,.page{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+.page{background-color: #1D77B1;}
+#bgImg{
+    width: 90%;
+    height: 75.6%;
+    background: url("../images/ranking.png") no-repeat center center;
+    background-size: cover;
+    position: absolute;
+    margin-left:5%;
+    margin-top:10% ;
+}
+
+/*排名的表头*/
+#rankH{
+    width: 438px;
+    height: 68px;
+    background: url("../images/rankH.png") no-repeat center center;
+    background-size: cover;
+    position: absolute;
+    margin-top: 217px;
+    margin-left: 128px;
+}
+
+/*前20名排行*/
+#content{
+    position: absolute;
+    width: 512px;
+    height: 528px;
+    margin-left:10%;
+    margin-top:35% ;
+    overflow: hidden;
+}
+#con{
+    margin-top: 15%;
+    width: 512px;
+    height: 457px;
+    position: absolute;
+}
+
+ul{
+    display: block;
+    background: url("../images/rankBG2.png") no-repeat;
+    padding: 0px;
+    background-size:484px 37px;
+    background-position:30px;
+    margin-top: 6px;
+    text-align: center;
+    width: 520px;
+    height: 37px;
+    opacity: 1;
+}
+ul li{
+    list-style: none;
+    display: block;
+    float: left;
+    width: 85px;
+    line-height: 37px;
+    list-style: none;
+    text-align: center;
+    color:white;
+    font-weight: 600;
+    /*添加后才能隐藏超出部分*/
+    position: relative;
+}
+ul li.no{
+    width: 10px;
+    text-align: center;
+    color: #32aae0;
+}
+ul li.name{
+    width: 115px;
+    overflow: hidden!important;
+	overflow-x:scroll;
+    margin-left: 34px;
+    color: #009de0;
+}
+ul li.name div{
+    display: block;
+    width: 115px;
+    overflow-x: scroll;
+    white-space:nowrap;
+}
+
+ul li.name{
+    width: 115px;
+    overflow-x: scroll;
+    white-space:nowrap;
+    margin-left: 34px;
+    color: #009de0;
+    display: block;
+}
+
+
+/*前三名*/
+.rank123{
+    display: block;
+    background: url("../images/rank123BG.png") no-repeat;
+    padding: 0px;
+    background-size:484px 37px;
+    background-position:30px;
+    margin-top: 6px;
+    text-align: center;
+    width: 520px;
+    height: 37px;
+    opacity: 1;
+}
+.rank123 .name{
+    color:white;
+}
+/*皇冠*/
+#guan{
+    position: relative;
+    top: -29px;
+    left:20px;
+    width: 45px;
+    height: 41px;
+    background: url("../images/guan.png") no-repeat center center;
+    background-size: cover;
+}
+/*皇冠无法全部显示，调整第一名的margin*/
+#con #rank1{
+    margin-top: 26px;
+}
+
+
+/*我的排名样式*/
+#info{
+    position: absolute;
+    margin-top: 815px;
+    margin-left: 57px;
+    font-size: 23px;
+}
+#info ul{
+    display: block;
+    background: url("../images/rank123BG.png") no-repeat;
+    padding: 0px;
+    background-size:484px 37px;
+    background-position:38px;
+    margin-top: 6px;
+    text-align: center;
+    width: 520px;
+    height: 37px;
+    opacity: 1;
+}
+#info .name{
+    padding-left: 18px;
+    width: 115px;
+    overflow-x: scroll;
+    white-space:nowrap;
+    margin-left: 34px;
+    display: block;
+}
+
+/*文字信息*/
+#wordInfo{
+    position: absolute;
+    padding-left: 12px;
+    width: 75%;
+    height: 2%;
+    margin-top: 870px;
+    margin-left: 14.890625%;
+}
+#wordInfo span{
+    font-size: 2rem;
+    list-style: none;
+    line-height: 3rem;
+    text-align: center;
+    color: white;
+}
+#con{
+    font-size: 23px;
+}
+.scrollbar{
+    display:block;
+    margin-left: 0px;
+    float: left;
+    width:530px;
+    height: 457px;
+}
+.force-overflow{
+    min-height: 457px;
+}
+/*关闭排行榜*/
+#closeRanking{
+    width: 55px ;
+    height:62px;
+    background:url("../images/closeRanking.png") no-repeat center center;
+    background-size: cover;
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 86%;
+}
+#closeRanking a{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/*
+    * custom_style定义样式
+    ::-webkit-scrollbar 滚动条整体部分
+    ::-webkit-scrollbar-thumb  滚动条里面的小方块，能向上向下移动（或往左往右移动，取决于是垂直滚动条还是水平滚动条）
+    ::-webkit-scrollbar-track  滚动条的轨道（里面装有Thumb）
+    ::-webkit-scrollbar-button 滚动条的轨道的两端按钮，允许通过点击微调小方块的位置。
+    ::-webkit-scrollbar-track-piece 内层轨道，滚动条中间部分（除去）
+    ::-webkit-scrollbar-corner 边角，即两个滚动条的交汇处
+    ::-webkit-resizer 两个滚动条的交汇处上用于通过拖动调整元素大小的小控件
+*/
+#custom_style{
+    overflow-y:scroll;
+}
+
+#custom_style::-webkit-scrollbar-track
+{
+    border-radius:10px;
+    background-color: whitesmoke;
+}
+
+#custom_style::-webkit-scrollbar
+{
+    width: 10px;
+    margin-left: 0px;
+}
+
+#custom_style::-webkit-scrollbar-thumb
+{
+    border-radius: 25px!important;
+    width: 35px!important;
+    background-color: #32aae0;
+}
+#con #custom_style::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 3px;
+    background-color:rgba(255,255,255,204);
+    width: 1px;
+}
+
+
+

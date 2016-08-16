@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=640px,user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <title>答题</title>
+    <!--Adobe Edge Runtime-->
+    <script type="text/javascript" charset="utf-8" src="edge_includes/edge.6.0.0.min.js"></script>
+    <script src="js/Jquery2.1.4.js"></script>
+    <script src="js/page_question.js"></script>
+    <script>
+        AdobeEdge.loadComposition('AnswerRight', 'Page_AnswerRight', {
+            scaleToFit: "both",
+            centerStage: "both",
+            minW: "0px",
+            maxW: "undefined",
+            width: "640px",
+            height: "960px"
+        }, {dom: [ ]}, {dom: [ ]});
+    </script>
+    <!--Adobe Edge Runtime End-->
+
+    <style>
+        *{
+            margin: 0px;
+            paddign:0px;
+        }
+        html,body,.page{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        .page{background-color: #1D77B1;}
+
+        #header,#content,#next{
+            position: absolute;
+        }
+        #header{
+            width: 516px;
+            height: 128px;
+            background: url("images/zaixiandati.png") no-repeat center center;
+            background-size:cover;
+            margin-top: 90px;
+            margin-left: 59px;
+        }
+
+        #content{
+            width: 516px;
+            height: 500px;
+            margin-top: 245px;
+            margin-left: 59px;
+            overflow: hidden;
+        }
+        #next{
+            background: url("images/next.png") no-repeat center center;
+            background-size: cover;
+            width: 33%;
+            height: 6.5625%;
+            margin-top: 126%;
+            margin-left: 35%;
+        }
+        #next a{
+            display: block;
+            width: 100%;
+            height:100%;
+        }
+
+        /*题目正文*/
+        #form{
+            position: absolute;
+            font-size: 25px;
+            line-height: 35px;
+            /*width: 500px;*/
+            overflow-y: auto;
+            /*min-height: 500px;*/
+            height: 500px;
+            margin-left: 10px;
+            color: #ffffff;
+            display: none;
+            /*让滚动条超出*/
+            width: 490px;
+            padding-right: 16px;
+        }
+        #form input{
+            display: none;
+        }
+        /*问题样式*/
+        #Q{
+            padding-bottom: 20px;
+            border-bottom: 2px solid white;
+        }
+        #form .select{
+            padding-top: 15px;
+        }
+        #form #div1{
+            padding-top: 30px;
+        }
+        #form #div1 li{
+            left:7px;
+            top:36px;
+        }
+        /*定位li标签的位置*/
+       #content #form div{
+            display: block;
+            position: relative;
+            margin-top: 0px;
+        }
+        #content #form div:after{
+            content: "";
+            display: block;
+            height: 0px;
+            overflow: hidden;
+            overflow-x: visible;
+            clear:both;
+        }
+        /*题目滚动条*/
+        #form::-webkit-scrollbar{
+            width:3px;
+            background-color: #4d4d4d;
+            padding-right: 10px;
+            /*display: none;*/
+        }
+        #form::-webkit-scrollbar-thumb{
+            width: 3px;
+            background-color: white;
+        }
+        span{
+            margin-right:0px ;
+            display: block;
+            width: 445px;
+            float: right;
+        }
+        /*重新定位答题统计的样式*/
+        #count{
+            display: block;
+            height: 40px;
+            width: 240px;
+            margin-left: 343px;
+            margin-top: 50px;
+            position: absolute;
+            /*文字样式*/
+            font-size: 22px;
+            color: #ffffff;
+            font-weight: 500;
+			line-height:40px;
+        }
+        /*多选的样式*/
+        .formMore input{
+            display: none;
+        }
+        .formMore{
+            display: block!important;
+        }
+        .formMore li{
+            list-style: none;
+            display:inline-block;
+            width: 17px;
+            height: 17px;
+            border: 2px solid #ffffff;
+            left: 7px;
+            top:21px;
+            position: absolute;
+        }
+
+        .formMore .active {
+            background: url("images/moreActive.png") no-repeat center center;
+            background-size:22px 20px ;
+        }
+
+        /*单选的样式*/
+        .formOne input{
+            display: none;
+        }
+        .formOne{
+            display: block!important;
+        }
+        .formOne li{
+            list-style: none;
+            display:inline-block;
+            width: 17px;
+            height: 17px;
+            border-radius: 30px;
+            border: 2px solid #ffffff;
+            left: 7px;
+            top:21px;
+            position: absolute;
+        }
+
+        .formOne .active {
+            background: url("images/oneActive.png") no-repeat center center;
+            background-size:22px 22px ;
+        }
+
+        /*当为最后一题时更改按钮背景*/
+        .end{
+            background:url("images/result.png") no-repeat center center!important;
+            background-size: cover;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="page">
+        <div id="Stage" class="Page_AnswerRight">
+            <div id="question">
+                <div id="header"></div>
+                <!--答题数目统计-->
+                <div id="count">
+                    今日已答<lable id="questionCount">03</lable>题  答对<lable id="rightCount">01</lable>题
+                </div>
+
+
+                <div id="content">
+                    <!--
+                    规则说明：
+                    1.每道题中的前面要有 li 标签和 br 换行标签；
+                    2.不需要submit,已经将submit()事件绑定到 a 的点击事件中
+                    -->
+
+                    <form action="" method="" id="form" class="">
+                              <div id="Q">什么原因你会推荐比ProDeploy高级比四谛法是滴是滴选择三项什么原因你会推荐比ProDeploy高级比四</div>
+                        <!--单选-->
+                        <!--只有第一个选项需要加id=div1-->
+                            <div class="select" id="div1">
+                                <li></li><input type="radio" name="radio" value="A" class=""><span>A. 你的客户希望部署后配置的帮助</span>
+                            </div >
+                            <div class="select">
+                                <li></li><input type="radio" name="radio" value="B" class=""><span>B. 你的客户希望他们硬件部署24/7您的客户需要帮助规划他们的数据迁移您的客户希望他们的硬件能上架,堆放和线缆化</span>
+                            </div>
+                            <div class="select">
+                                <li></li><input type="radio" name="radio" value="B" class=""><span> C. 客户希望确保包装材料被布置</span>
+                            </div>
+                            <div class="select">
+                                <li></li><input type="radio" name="radio" value="B" class=""><span>D. 客户使用不同的网络供应商, 希望确保兼容性</span>
+                            </div>
+                            <div class="select">
+                                <li></li><input type="radio" name="radio" value="B" class=""><span>E. 您的客户需要帮助规划他们的数据迁移</span>
+                            </div>
+                            <div class="select">
+                                <li></li><input type="radio" name="radio" value="B" class=""><span>F. 您的客户希望他们的硬件能上架,堆放和线缆化</span>
+                            </div>
+                    </form>
+                </div>
+                <div id="next" class="">
+                    <!--回答全对跳转到AnswerRight.html,没有对三题跳转到AnswerError.html-->
+                    <a href=""></a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

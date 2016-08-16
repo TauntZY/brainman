@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=640px,user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <title>加载数据失败！请重试-</title>
+    <!--Adobe Edge Runtime-->
+    <script type="text/javascript" charset="utf-8" src="edge_includes/edge.6.0.0.min.js"></script>
+    <style>
+        .edgeLoad-Page_AnswerRight { visibility:hidden; }
+    </style>
+    <script>
+        AdobeEdge.loadComposition('AnswerRight', 'Page_AnswerRight', {
+            scaleToFit: "both",
+            centerStage: "both",
+            minW: "0px",
+            maxW: "undefined",
+            width: "640px",
+            height: "960px"
+        }, {dom: [ ]}, {dom: [ ]});
+    </script>
+    <!--Adobe Edge Runtime End-->
+
+    <style>
+        html{
+            font-size:62.5%; /* 10÷16=62.5% */
+        }
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        html,body,.page{
+            width:100%;
+            height:100%;
+            position:absolute;
+        }
+        .page {
+            background-color: #1D77B1;
+        }
+        /*可爱的图标*/
+        #cute{
+            width: 310px;
+            height: 196px;
+            margin-top: 255px;
+            margin-left: 175px;
+            position: absolute;
+            background:url("images/errorCute.png") no-repeat center center;
+            background-size: cover;
+        }
+        /*重新加载文字*/
+        #word{
+            width: 290px;
+            height: 25px;
+            color: #ffffff;
+            font-size: 25px;
+            margin-left: 190px;
+            margin-top: 453px;
+            position: absolute;
+        }
+
+        /*重试按钮*/
+        #refresh{
+            position: absolute;
+            width: 219px;
+            height: 63px;
+            background: url("images/refresh.png") no-repeat center center;
+            background-size: cover;
+            margin-top: 720px;
+            margin-left: 220px;
+        }
+        #refresh a{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div id="Stage" class="Page_AnswerRight">
+            <div id="cute"></div>
+            <div id="word">
+                加载数据失败！请重试...
+            </div>
+            <div id="refresh">
+                <a href="#"></a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

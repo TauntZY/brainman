@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=640px,user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <title>礼品盒</title>
+    <!--Adobe Edge Runtime-->
+    <script type="text/javascript" charset="utf-8" src="edge_includes/edge.6.0.0.min.js"></script>
+    <style>
+        .edgeLoad-Page_AnswerRight { visibility:hidden; }
+    </style>
+    <script>
+        AdobeEdge.loadComposition('AnswerRight', 'Page_AnswerRight', {
+            scaleToFit: "both",
+            centerStage: "both",
+            minW: "0px",
+            maxW: "undefined",
+            width: "640px",
+            height: "960px"
+        }, {dom: [ ]}, {dom: [ ]});
+    </script>
+    <!--Adobe Edge Runtime End-->
+
+    <style>
+        *{
+            margin: 0px;
+            padding:0px;
+        }
+        html {
+            font-size: 62.5%; /* 10÷16=62.5% */
+            font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif
+        }
+        html,body,.page{
+            width:100%;
+            height:100%;
+            position:absolute;
+        }
+        .page {
+            background-color: #1D77B1;
+        }
+
+        #con{
+            position:absolute;
+            width: 441px;
+            height: 604px;
+            background: url("images/lipinheBg.png") no-repeat center center;
+            background-size: cover;
+            margin-left: 100px;
+            margin-top:60px;
+        }
+
+        /*具体剩余礼品*/
+        #info{
+            position: absolute;
+            width: 247px;
+            height:158px;
+            background: url("images/lipinheInfoBg.png") no-repeat center center;
+            background-size: cover;
+            margin-top: 385px;
+            margin-left: 185px;
+            text-align: right;
+            /*color: #ffffff;*/
+            color: #ffffff;
+            font-size: 33px;
+            line-height: 39px;
+            font-weight: 400;
+        }
+        #info span{
+            position: relative;
+            display: inline-block;
+            left: -46px;
+            opacity: 0.85;
+        }
+        /*我要抽奖*/
+        #goCJ{
+            width: 219px;
+            height:63px;
+            margin-top: 770px;
+            margin-left: 195px;
+            position: absolute;
+            background: url("images/lipinhe_goCJbtn.png") no-repeat center center;
+            background-size: cover;
+        }
+        #goCJ a{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        /*关闭*/
+        #closeLipinhe{
+            width: 55px ;
+            height:62px;
+            background:url("images/closeRanking.png") no-repeat center center;
+            background-size: cover;
+            position: absolute;
+            margin-top: 15px;
+            margin-left: 80%;
+        }
+        #closeLipinhe a{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div id="Stage" class="Page_AnswerRight">
+            <div id="con"></div>
+            <div id="info">
+                <span id="huafei10">00</span><br/>
+                <span id="huafei20">00</span><br/>
+                <span id="huafei50">00</span><br/>
+                <span id="huafei100">00</span><br/>
+            </div>
+
+            <div id="goCJ">
+                <a href="CJ.html"></a>
+            </div>
+            <!--关闭-->
+            <div id="closeLipinhe">
+                <a href="index.html"></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
